@@ -23,4 +23,4 @@ while [ ! ${NGROK_URL} ] || [ ${NGROK_URL} = 'null' ];  do
     sleep 1
 done
 
-bash .bin/start-shopsystem.sh
+bash start-shopsystem.sh
