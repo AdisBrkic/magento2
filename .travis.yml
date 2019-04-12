@@ -24,14 +24,6 @@ matrix:
   - <<: *acceptance-test
     env: GATEWAY=API-WDCEE-TEST
 
-script:
-  - composer test-coverage
-  - composer cs-check
-
-after_script:
-  - composer upload-coverage
-  - bash generate-tag.sh
-
 notifications:
   email: false
   slack:
