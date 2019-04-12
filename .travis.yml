@@ -1,0 +1,33 @@
+dist: trusty
+sudo: false
+language: php
+
+env:
+  global:
+  - COMPOSER_ARGS="--no-interaction"
+
+matrix:
+  allow_failures:
+    - stage: acceptance-test
+  include:
+  - php: 7.0
+
+  - &acceptance-test
+    stage: acceptance-test
+    if: type != cron
+    php: 7.0
+    env: GATEWAY=API-TEST
+    install:
+      - travis_retry composer update
+    script: bash run-ui-tests.sh
+
+  - <<: *acceptance-test
+    env: GATEWAY=API-WDCEE-TEST
+
+script:
+  - composer test-coverage
+  - composer cs-check
+
+after_script:
+  - composer upload-coverage
+  - bash generate-tag.sh
