@@ -8,7 +8,7 @@ chmod +x $PWD/ngrok
 curl -sO http://stedolan.github.io/jq/download/linux64/jq
 chmod +x $PWD
 
-$PWD/ngrok authtoken 53c6WVprQB4dpNDZnLiLr_2XALf7e5gUCFALtrz5pmE
+$PWD/ngrok authtoken taxH8g5qN7snUkXofWDa_5rAgK1L3Kfa7agvmTh9ic
 TIMESTAMP=$(date +%s)
 $PWD/ngrok http 9090 -subdomain="${TIMESTAMP}-magento2-api-test" > /dev/null &
 
