@@ -13,10 +13,11 @@ done
 
 docker exec -it ${MAGENTO_CONTAINER_NAME} install-magento
 docker exec -it ${MAGENTO_CONTAINER_NAME} install-sampledata
-docker exec -it ${MAGENTO_CONTAINER_NAME} php bin/magento setup:static-content:deploy
+docker exec -it ${MAGENTO_CONTAINER_NAME} php bin/magento setup:static-content:deploy -f de_DE
 docker exec -it ${MAGENTO_CONTAINER_NAME} php bin/magento cache:clean
 docker exec -it ${MAGENTO_CONTAINER_NAME} php bin/magento cache:flush
-sleep 60s
+echo "Flush zavrsen"
+sleep 90s
 docker exec -it ${MAGENTO_CONTAINER_NAME} composer require wirecard/magento2-ee
 docker exec -it ${MAGENTO_CONTAINER_NAME} php bin/magento setup:upgrade
 docker exec -it ${MAGENTO_CONTAINER_NAME} php bin/magento setup:di:compile
