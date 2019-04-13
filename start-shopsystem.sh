@@ -13,7 +13,6 @@ done
 
 docker exec -it ${MAGENTO_CONTAINER_NAME} install-magento
 docker exec -it ${MAGENTO_CONTAINER_NAME} install-sampledata
-docker exec -it ${MAGENTO_CONTAINER_NAME} php bin/magento setup:static-content:deploy -f de_DE
 docker exec -it ${MAGENTO_CONTAINER_NAME} php bin/magento cache:clean
 docker exec -it ${MAGENTO_CONTAINER_NAME} php bin/magento cache:flush
 echo "Flush zavrsen"
