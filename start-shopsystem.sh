@@ -13,9 +13,9 @@ done
 
 docker exec -it ${MAGENTO_CONTAINER_NAME} install-magento
 docker exec -it ${MAGENTO_CONTAINER_NAME} install-sampledata
-docker exec -it ${MAGENTO_CONTAINER_NAME} php bin/magento indexer:reindex
-docker exec -it ${MAGENTO_CONTAINER_NAME} rm -rf var/generation/ var/di/
-# docker exec -it ${MAGENTO_CONTAINER_NAME} php bin/magento setup:di:compile
+docker exec -it ${MAGENTO_CONTAINER_NAME} php bin/magento setup:static-content:deploy
+docker exec -it ${MAGENTO_CONTAINER_NAME} php bin/magento cache:clean
+docker exec -it ${MAGENTO_CONTAINER_NAME} php bin/magento cache:flush
 sleep 60s
 docker exec -it ${MAGENTO_CONTAINER_NAME} composer require wirecard/magento2-ee
 docker exec -it ${MAGENTO_CONTAINER_NAME} php bin/magento setup:upgrade
