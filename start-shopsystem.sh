@@ -13,11 +13,11 @@ done
 
 docker exec -it ${MAGENTO_CONTAINER_NAME} install-magento
 docker exec -it ${MAGENTO_CONTAINER_NAME} install-sampledata
-docker exec -it ${MAGENTO_CONTAINER_NAME} php bin/magento setup:static-content:deploy -f
+docker exec -it ${MAGENTO_CONTAINER_NAME} php bin/magento setup:static-content:deploy de_DE
 docker exec -it ${MAGENTO_CONTAINER_NAME} php bin/magento indexer:reindex
 #rm -rf var/cache var/generation var/pagecache var/di
-docker exec -it ${MAGENTO_CONTAINER_NAME} php bin/magento setup:di:compile
-docker exec -it ${MAGENTO_CONTAINER_NAME} bash -c "cd ~/ && chmod -R 777 ./ && find /var/ -name "report" && find /home/travis/ -name "report""
+#docker exec -it ${MAGENTO_CONTAINER_NAME} php bin/magento setup:di:compile
+docker exec -it ${MAGENTO_CONTAINER_NAME} bash -c "chmod -R 777 ./"
 echo "Deploy finished!"
 sleep 120s
 #docker exec -it ${MAGENTO_CONTAINER_NAME} composer require wirecard/magento2-ee
