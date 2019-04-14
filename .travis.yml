@@ -19,7 +19,7 @@ matrix:
     env: GATEWAY=API-TEST
     #install:
     #  - travis_retry composer update
-    script: bash run-ui-tests.sh
+    script: bash start-shopsystem.sh
 
   - <<: *acceptance-test
     env: GATEWAY=API-WDCEE-TEST

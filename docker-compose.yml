@@ -1,7 +1,7 @@
 version: '3.0'
 services:
   web:
-    container_name: "${MAGENTO_CONTAINER_NAME}"
+    container_name: web
     image: alexcheng/magento2
     ports:
       - "9090:80"
@@ -10,7 +10,7 @@ services:
     env_file:
       - env
     environment:
-      MAGENTO_URL: "${NGROK_URL}"
+      MAGENTO_URL: http://f02fc6d3.ngrok.io
   db:
     image: mysql:5.6.23
     env_file:
