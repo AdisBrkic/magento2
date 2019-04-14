@@ -8,17 +8,15 @@ docker-compose up > /dev/null &
 
 while ! $(curl --output /dev/null --silent --head --fail "${NGROK_URL}"); do
     echo "Waiting for docker container to initialize"
-    sleep 10
+    sleep 20
 done
 
 docker exec -it ${MAGENTO_CONTAINER_NAME} install-magento
 docker exec -it ${MAGENTO_CONTAINER_NAME} install-sampledata
 docker exec -it ${MAGENTO_CONTAINER_NAME} php bin/magento setup:static-content:deploy -f
+echo "Deploy finished!"
 sleep 120s
 docker exec -it ${MAGENTO_CONTAINER_NAME} php bin/magento setup:di:compile
-echo "Flush zavrsen"
-
-sleep 120s
 #docker exec -it ${MAGENTO_CONTAINER_NAME} composer require wirecard/magento2-ee
 #docker exec -it ${MAGENTO_CONTAINER_NAME} php bin/magento setup:upgrade
 #docker exec -it ${MAGENTO_CONTAINER_NAME} php bin/magento setup:di:compile

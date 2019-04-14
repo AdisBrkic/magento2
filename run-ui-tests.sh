@@ -20,7 +20,7 @@ while [ ! ${NGROK_URL} ] || [ ${NGROK_URL} = 'null' ];  do
     echo "Waiting for ngrok to initialize"
     export NGROK_URL=$(curl -s localhost:4040/api/tunnels/command_line | jq --raw-output .public_url)
     echo $NGROK_URL
-    sleep 10
+    sleep 20
 done
 
 bash start-shopsystem.sh
