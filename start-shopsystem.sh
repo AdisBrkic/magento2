@@ -17,7 +17,7 @@ docker exec -it ${MAGENTO_CONTAINER_NAME} php bin/magento setup:static-content:d
 #docker exec -it ${MAGENTO_CONTAINER_NAME} php bin/magento setup:di:compile
 echo "Flush zavrsen"
 
-sleep 90s
+sleep 120s
 #docker exec -it ${MAGENTO_CONTAINER_NAME} composer require wirecard/magento2-ee
 #docker exec -it ${MAGENTO_CONTAINER_NAME} php bin/magento setup:upgrade
 #docker exec -it ${MAGENTO_CONTAINER_NAME} php bin/magento setup:di:compile
