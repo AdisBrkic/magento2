@@ -8,7 +8,7 @@ docker-compose up > /dev/null &
 
 while ! $(curl --output /dev/null --silent --head --fail "${NGROK_URL}"); do
     echo "Waiting for docker container to initialize"
-    sleep 1
+    sleep 10
 done
 
 docker exec -it ${MAGENTO_CONTAINER_NAME} install-magento
