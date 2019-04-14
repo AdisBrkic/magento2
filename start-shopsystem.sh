@@ -13,5 +13,3 @@ done
 
 docker exec -it ${MAGENTO_CONTAINER_NAME} install-magento
 docker exec -it ${MAGENTO_CONTAINER_NAME} install-sampledata
-echo "Deploy finished!"
-sleep 240s
