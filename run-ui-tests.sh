@@ -22,4 +22,7 @@ while [ ! ${NGROK_URL} ] || [ ${NGROK_URL} = 'null' ];  do
     sleep 1
 done
 
+docker stop $(docker ps -a -q)
+docker rm $(docker ps -a -q)
+
 bash start-shopsystem.sh
