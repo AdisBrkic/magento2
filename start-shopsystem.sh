@@ -3,8 +3,6 @@ set -e
 
 export MAGENTO_CONTAINER_NAME=web
 
-docker stop $(docker ps -a -q)
-docker rm $(docker ps -a -q)
 docker-compose build --build-arg GATEWAY=API-TEST web
 docker-compose up > /dev/null &
 
